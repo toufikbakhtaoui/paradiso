@@ -1,4 +1,3 @@
-/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
 
@@ -18,6 +17,16 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'mvn test'
+            }
+        }
+
+        stage('Sonar') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh 'mvn sonar:sonar \
+                -Dsonar.projectKey=paradiso \
+                -Dsonar.host.url=http://localhost:9000'
+                }
             }
         }
     }
