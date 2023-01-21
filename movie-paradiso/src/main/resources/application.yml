@@ -1,5 +1,0 @@
-spring:
-    data:
-      mongodb:
-        uri: mongodb+srv://toufik:${{ secrets.GITHUB_TOKEN }}@cluster0.q0jcit0.mongodb.net/?retryWrites=true&w=majority
-        database: paradisodb
